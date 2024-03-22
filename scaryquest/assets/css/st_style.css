@@ -1,0 +1,398 @@
+#storyteller {
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 7vw;
+    left: 3vw;
+    float: left;
+    animation-direction: normal, normal, alternate, alternate;
+    animation-iteration-count: 1, 1, infinite, 8;
+    animation-duration: 2.5s, 2s, 2s, 0.6s;
+    animation-name: st-emergence, st-slide, st-breath, st-speak-dinamic;
+    animation-delay: 0ms, 0ms, 0ms, 1.9s;
+    animation-timing-function: ease, ease, ease, ease-in-out;
+    z-index: 1;
+}
+
+#st-body {
+    background-image: url(../images/storytellerParts/st-Bodynew.png);
+    background-size: 45vw;
+    width: 45vw;
+    height: 39vw;
+    position: absolute;
+    z-index: 3;
+    animation: 2s alternate infinite st-height-resizer;
+}
+
+#st-arm {
+    background-image: url(../images/storytellerParts/st_arm.png);
+    background-size: 38.46vw;
+    width: 38.46vw;
+    height: 25.5vw;
+    left: 9.53vw;
+    top: 20.68vw;
+    position: absolute;
+    z-index: 10;
+    animation-name: st-emergence, st-arm-dinamic, st-arm-breath, st-arm-slide;
+    animation-duration: 2s, 2s, 2s, 1.9s;
+    animation-iteration-count: 1, infinite, infinite, 1;
+    animation-direction: normal, alternate, alternate, normal;
+}
+
+#st-mouth {
+    background-image: url(../images/storytellerParts/st_Mouth.png);
+    background-size: 12vw;
+    width: 12vw;
+    height: 11.3vw;
+    left: 17.7vw;
+    top: 11vw;
+    position: absolute;
+    z-index: 2;
+    animation-duration: 0.6s, 2.1s;
+    animation-name: st-speak, st-mouth-dinamic;
+    animation-delay: 1.9s, 6.6s;
+    animation-iteration-count: 15, infinite;
+    animation-direction: alternate, alternate;
+    animation-timing-function: ease, ease-in-out;
+}
+
+#st-leftEye {
+    background-image: url(../images/storytellerParts/st_Eye.png);
+    background-size: 1.8vw;
+    width: 1.8vw;
+    height: 1.8vw;
+    left: 23.776vw;
+    top: 7.6vw;
+    position: absolute;
+    z-index: 1;
+}
+
+#st-rightEye {
+    background-image: url(../images/storytellerParts/st_Eye.png);
+    background-size: 1.6vw;
+    width: 1.6vw;
+    height: 1.6vw;
+    left: 28.8vw;
+    top: 9.1vw;
+    position: absolute;
+    z-index: 1;
+}
+
+#st-leftPupil {
+    background-image: url(../images/storytellerParts/st_Pupil.png);
+    background-size: 0.95vw;
+    width: 0.95vw;
+    height: 0.95vw;
+    margin-top: 0.4vw;
+    margin-left: 0.7vw;
+    z-index: 1;
+    animation: 1.5s infinite ease-in alternate st-eye-dinamic;
+}
+
+#st-rightPupil {
+    background-image: url(../images/storytellerParts/st_Pupil.png);
+    background-size: 0.9vw;
+    width: 0.9vw;
+    height: 0.9vw;
+    margin-top: 0.3vw;
+    margin-left: 0.6vw;
+    z-index: 1;
+    animation: 1.5s infinite ease-in alternate st-eye-dinamic;
+}
+
+#st-patch {
+    background-image: url(../images/storytellerParts/st_Patch.png);
+    background-size: 10vw;
+    width: 10vw;
+    height: 7vw;
+    left: 18vw;
+    top: 16vw;
+    position: absolute;
+    z-index: 1;
+}
+
+#st-closedEyeLeft {
+    background-image: url(../images/storytellerParts/st_ClosedEye1.png);
+    background-size: 2vw;
+    visibility: hidden;
+    width: 2vw;
+    height: 2vw;
+    left: 23.6vw;
+    top: 7.5vw;
+    z-index: 2;
+    position: absolute;
+}
+
+#st-closedEyeRight {
+    background-image: url(../images/storytellerParts/st_ClosedEye1.png);
+    background-size: 2vw;
+    visibility: hidden;
+    width: 2vw;
+    height: 2vw;
+    left: 28.5vw;
+    top: 8.6vw;
+    z-index: 2;
+    position: absolute;
+}
+
+#blockcloser {
+    background-color: rgb(1, 3, 16);
+    width: 100%;
+    height: 15.5%;
+    top: 84.5%;
+    position: absolute;
+    z-index: 2;
+}
+
+@keyframes st-slide-back {
+    to {
+        left: -45%;
+    }
+}
+
+@keyframes st-arm-slide-back {
+    to {
+        left: -43%;
+    }
+}
+
+@keyframes st-arm-slide {
+    from {
+        left: -43%;
+    }
+    to {
+        left: 9.8vw;
+    }
+}
+
+@keyframes st-arm-breath {
+    from {
+        transform: rotate(0deg);
+        top: 20.5vw;
+    }
+    to {
+        transform: rotate(0.35deg);
+        top: 20.8vw;
+    }
+}
+
+@keyframes st-eye-dinamic {
+    from {
+        margin-top: 0.35vw;
+    }
+    to {
+        margin-top: 0.47vw;
+    }
+}
+
+@keyframes st-mouth-dinamic {
+    from {
+        transform: rotate(0deg);
+        top: 11vw;
+    }
+    to {
+        transform: rotate(1.5deg);
+        top: 11.1vw;
+    }
+}
+
+@keyframes st-breath {
+    from {
+        transform: rotate(0deg);
+        top: 7vw;
+    }
+    to {
+        transform: rotate(0.35deg);
+        top: 7.3vw;
+    }
+}
+
+@keyframes st-arm-dinamic {
+    from {
+        transform: rotate(-1.2deg);
+        top: 20.8vw;
+        left: 9.6vw;
+    }
+    to {
+        transform: rotate(1.2deg);
+        top: 20.68vw;
+        left: 9.8vw;
+    }
+}
+
+@keyframes st-speak {
+    from {
+        top: 11vw;
+    }
+    65% {
+        top: 11.3vw;
+    }
+    75% {
+        top: 11vw;
+    }
+    to {
+        top: 11.3vw;
+    }
+}
+
+@keyframes st-slide {
+    from {
+        left: -45%;
+    }
+    to {
+        left: 3vw;
+    }
+}
+
+@keyframes st-emergence {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes st-speak-dinamic {
+    from {
+        top: 7vw;
+        height: 39vw;
+    }
+    50% {
+        top: 6.9vw;
+        height: 39vw;
+    }
+    75%{
+        top: 7.05vw;
+        height: 39vw;
+    }
+    to {
+        top: 7vw;
+        height: 39vw;
+    }
+}
+
+#st-space {
+    top: 89.3vw;
+    width: 100%;
+    height: 54vw;
+    position: absolute;
+    z-index: 0;
+}
+
+#st-speech-cloud {
+    background-color: rgba(18, 18, 18, 0.8);
+    border-radius: 1.2vw;
+    outline-width: 0.1vw;
+    outline-color: white;
+    outline-style: solid;
+    outline-offset: -0.86vw;
+    border-width: 0.18vw;
+    border-color: white;
+    border-style: solid;
+    width: 53%;
+    height: auto;
+    min-height: 3vw;
+    top: 10%;
+    left: 40%;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    position: absolute;
+    animation: 1.8s speech-cloud-slide, 4.5s speech-cloud-appear, 2s alternate infinite st-speech-cloud-dynamic;
+}
+
+.cloud-text-row {
+    width: 100%;
+    height: 3vw;
+    font-family: 'Underdog';
+    font-size: 2vw;
+    margin: 0vw 2vw 0vw 2vw;
+    color: white;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: cloud-print 1.3s steps(45);
+    position: relative;
+}
+
+#quest-btn {
+    background-color: rgb(11, 21, 17);
+    border-radius: 2vw;
+    border-width: 1vw;
+    color: white;
+    width: 22vw;
+    height: 7vw;
+    top: 30vw;
+    left: 58vw;
+    font-family: 'Underdog';
+    font-size: 2.7vw;
+    font-weight: bold;
+    position: absolute;
+    animation: quest-btn-appear 5s, quest-btn-slide 1s;
+}
+
+@keyframes st-speech-cloud-dynamic {
+    to {
+        top: 10.5%;
+    }
+}
+
+@keyframes st-height-resizer {
+    from {
+        height: 38.7vw;
+    }
+    to {
+        height: 38.4vw;
+    }
+}
+
+@keyframes quest-btn-slide-back {
+    to {
+        opacity: 0;
+        top: 46vw;
+    }
+}
+
+@keyframes speech-cloud-slide-back {
+    to {
+        opacity: 0.7;
+        left: 100%;
+    }
+}
+
+@keyframes quest-btn-appear {
+    from {
+        opacity: 0;
+    }
+}
+
+@keyframes quest-btn-slide {
+    from {
+        top: 46vw;
+    }
+}
+
+@keyframes cloud-print {
+    from {
+        width: 0;
+    }
+}
+
+@keyframes speech-cloud-slide {
+    from {
+        width: 0;
+        left: 99.6%;
+    }
+    to {
+        width: 52%;
+        left: 40%;
+    }
+}
+
+@keyframes speech-cloud-appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

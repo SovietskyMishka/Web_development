@@ -1,0 +1,187 @@
+#storyteller-reversed {
+    position: absolute;
+    width: auto;
+    height: auto;
+    animation: 1.6s st-reversed-appear, 1.6s alternate infinite st-reversed-breath;
+    filter:brightness(60%)
+}
+
+#st-body-reversed {
+    background-image: url("../images/storytellerParts/st-Bodynew.png");
+    background-size: 52vw;
+    width: 39vw;
+    height: 45vw;
+    top: 10vw;
+    left: 69vw;
+    transform: scaleX(-1);
+    position: absolute;
+    z-index: 2;
+    animation: 1.6s alternate infinite st-h-resizer;
+}
+
+#st-arm-reversed {
+    background-image: url("../images/storytellerParts/st_arm.png");
+    background-size: 44.7vw;
+    transform: scaleX(-1);
+    width: 44.7vw;
+    height: 29.65vw;
+    top: 25.5vw;
+    left: 55.8vw;
+    position: relative;
+    z-index: 3;
+    animation: 2s alternate infinite ease-in-out st-arm-reversed-dynamic;
+}
+
+#st-mouth-reversed {
+    background-image: url(../images/storytellerParts/st_Mouth.png);
+    background-size: 12.9vw;
+    width: 12.9vw;
+    height: 11.9vw;
+    top: 23vw;
+    left: 73.7vw;
+    position: absolute;
+    transform: scaleX(-1);
+    z-index: 1;
+    animation: 1s alternate infinite st-mouth-reversed-dynamic, 0.6s alternate 6 2s st-mouth-reversed-speak;
+}
+
+#st-patch-reversed {
+    background-image: url(../images/storytellerParts/st_Patch.png);
+    background-size: 11.7vw;
+    width: 11.7vw;
+    height: 9.5vw;
+    top: 28.5vw;
+    left: 75.6vw;
+    position: absolute;
+    transform: scaleX(-1);
+    z-index: 0;
+}
+
+#st-eye-left-reversed {
+    background-image: url(../images/storytellerParts/st_Eye.png);
+    background-size: 1.7vw;
+    width: 1.7vw;
+    height: 1.7vw;
+    top: 20.6vw;
+    left: 72.9vw;
+    position: absolute;
+    z-index: 1;
+}
+
+#st-eye-right-reversed {
+    background-image: url(../images/storytellerParts/st_Eye.png);
+    background-size: 2.1vw;
+    width: 2.1vw;
+    height: 2.1vw;
+    top: 18.8vw;
+    left: 78.5vw;
+    position: absolute;
+    z-index: 1;
+}
+
+#st-pupil-left {
+    background-image: url(../images/storytellerParts/st_Pupil.png);
+    background-size: 1vw;
+    width: 1vw;
+    height: 1vw;
+    top: 0.3vw;
+    left: 0.6vw;
+    position: absolute;
+}
+
+#st-pupil-right {
+    background-image: url(../images/storytellerParts/st_Pupil.png);
+    background-size: 1.1vw;
+    width: 1.1vw;
+    height: 1.1vw;
+    top: 0.5vw;
+    left: 0.8vw;
+    position: absolute;
+}
+
+#st-eye-closed-left-reversed {
+    background-image: url(../images/storytellerParts/st_ClosedEye1.png);
+    background-size: 3vw;
+    width: 3vw;
+    height: 3vw;
+    top: 19.6vw;
+    left: 72.2vw;
+    position: absolute;
+    transform: scaleX(-1);
+    z-index: 1;
+    visibility: hidden;
+}
+
+#st-eye-closed-right-reversed {
+    background-image: url(../images/storytellerParts/st_ClosedEye1.png);
+    background-size: 3vw;
+    width: 3vw;
+    height: 3vw;
+    top: 18.5vw;
+    left: 78.2vw;
+    position: absolute;
+    transform: scaleX(-1);
+    z-index: 1;
+    visibility: hidden;
+}
+
+@keyframes st-mouth-reversed-speak {
+    from {
+        top: 23vw;
+    }
+    50% {
+        top: 23.4vw;
+    }
+    75% {
+        top: 22.8vw;
+    }
+    to {
+        top: 23.6vw;
+    }
+}
+
+@keyframes st-arm-reversed-dynamic {
+    from {
+        transform: rotate('10deg');
+    }
+    to {
+        transform: rotate('-10deg');
+        top: 25.2vw;
+    }
+}
+
+@keyframes st-mouth-reversed-dynamic {
+    to {
+        top: 23.1vw;
+        left: 73.8vw;
+    }
+}
+
+@keyframes st-reversed-appear {
+    from {
+        opacity: 0;
+        left: 100vw;
+    }
+    to {
+        opacity: 1;
+        left: 0vw;
+    }
+}
+
+@keyframes st-reversed-breath {
+    from {
+        top: 0vw;
+    }
+    to {
+        top: 0.5vw;
+    }
+}
+
+@keyframes st-h-resizer {
+    from {
+        height: 45vw;
+    }
+    to {
+        height: 44.5vw;
+    }
+}

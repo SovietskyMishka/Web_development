@@ -1,0 +1,417 @@
+#moon {
+    background-color: rgb(255, 255, 255);
+    border-radius: 100%;
+    width: 9vw;
+    height: 9vw;
+    position: absolute;
+    top: 14vw;
+    left: 70vw;
+    opacity: 0.25;
+    animation-name: moon-appear, moon-slide;
+    animation-duration: 3s, 1.2s;
+    animation-delay: 0s, 50ms;
+    animation-timing-function: ease-in-out, ease;
+}
+
+#moonlight {
+    background: radial-gradient(rgba(115, 166, 249, 0.3), rgba(0, 0, 0, 0) 60%);
+    border-radius: 100%;
+    width: 25vw;
+    height: 25vw;
+    top: -7.77vw;
+    left: -7.77vw;
+    position: absolute;
+    animation: 20ms alternate infinite moonlight-dynamic;
+}
+
+#header-text {
+    width: 67vw;
+    height: 30vw;
+    position: absolute;
+    top: 120px;
+    left: 2.5vw;
+    color: white;
+    font-family: 'Underdog';
+    font-size: 10vw;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: header-text-slide 1.5s, text-print 1.6s steps(25), header-text-appear 4s;
+}
+
+#st-quest-card-area {
+    width: 60vw;
+    height: 37vw;
+    top: 12vw;
+    left: 5vw;
+    position: absolute;
+    animation: 7s st-quest-card-appear;
+    scale: 0.8;
+}
+
+#quest-card-area {
+    width: 60vw;
+    height: 37vw;
+    top: 23vw;
+    left: 3vw;
+    position: absolute;
+    animation: 7s st-quest-card-appear;
+    scale: 1;
+}
+
+#quest-features {
+    background-color: rgba(128, 128, 128, 0.207);
+    width: 30vw;
+    height: 37vw;
+    top: 29vw;
+    left:65vw;
+    position: absolute;
+    font-size: 2vw;
+}
+
+#quest-select-btn {
+    background-color: rgb(11, 21, 17);
+    width: 30vw;
+    height: 9vw;
+    top: 68vw;
+    left: 65vw;
+    position: absolute;
+    font-family: 'underdog';
+    color: white;
+    border-radius: 1vw;
+    font-size: 3vw;
+    border-width: 1.5vw;
+}
+
+#video-block {
+    background-color: rgba(250, 235, 215, 0.251);
+    width: 60vw;
+    height: 35vw;
+    top:60vw;
+    left: 3vw;
+    position: absolute;
+}
+
+#st-quest-card0 {
+    border-radius: 1vw;
+    position: absolute;
+    background-size: 100%;
+    background-blend-mode: color-dodge;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 25vw;
+    height: 25vw;
+    float: left;
+    margin-top: 10%;
+    color: rgba(179, 179, 179, 0.5);
+    text-align: center;
+    filter: blur(3px);
+    user-select: all;
+}
+
+#st-quest-card0 h3, #st-quest-card2 h3 {
+    font-weight: bold;
+    font-size: 4.17vw;
+    margin-top: 9.13vw;
+    user-select: none;
+}
+
+#st-quest-card0 p, #st-quest-card2 p {
+    font-size: 1.65vw;
+    margin-top: 6.7vw;
+    user-select: none;
+}
+
+#st-quest-card1 {
+    border-radius: 1vw;
+    position: absolute;
+    background-size: 100%;
+    background-blend-mode: color;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 30vw;
+    height: 30vw;
+    float: left;
+    margin-top: 5.5%;
+    color: white;
+    text-align: center;
+    left: 50%;
+    margin-left: -15vw;
+    z-index: 2;
+    user-select: all;
+}
+
+#st-quest-card1 h3 {
+    font-weight: bold;
+    font-size: 5vw;
+    margin-top: 11vw;
+}
+
+#st-quest-card1 p {
+    font-size: 2vw;
+    margin-top: 8vw;
+}
+
+#st-quest-card2 {
+    border-radius: 1vw;
+    position: absolute;
+    background-size: 100%;
+    background-blend-mode: color-dodge;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 25vw;
+    height: 25vw;
+    float: left;
+    margin-top: 10%;
+    color: rgba(179, 179, 179, 0.5);
+    text-align: center;
+    left: 100%;
+    margin-left: -25vw;
+    filter: blur(3px);
+    user-select: all;
+}
+
+#description-btn {
+    background-color: rgb(11, 21, 17);
+    border-radius: 2vw;
+    border-width: 1vw;
+    width: 25vw;
+    height: 6.5vw;
+    top: 45vw;
+    left: 22.8vw;
+    font-family: 'Underdog';
+    font-size: 2.7vw;
+    font-weight: bold;
+    color: white;
+    position: absolute;
+}
+
+#quest-order-btn {
+    background-color: rgb(11, 21, 17);
+    border-radius: 2vw;
+    border-width: 1vw;
+    width: 23vw;
+    height: 7vw;
+    top: 41vw;
+    left: 60vw;
+    position: absolute;
+    font-family: 'Underdog';
+    font-size: 2.7vw;
+    font-weight: bold;
+    color: white;
+}
+
+#quest-speech-cloud {
+    background-color: rgba(18, 18, 18, 0.8);
+    border-radius: 1.2vw;
+    outline-width: 0.1vw;
+    outline-color: white;
+    outline-style: solid;
+    outline-offset: -0.86vw;
+    border-width: 0.18vw;
+    border-color: white;
+    border-style: solid;
+    width: 65vw;
+    min-height: 2.8vw;
+    height: auto;
+    top: 2vw;
+    left: 4vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    position: absolute;
+    z-index: 3;
+    animation: 1.5s quest-speech-cloud-appear, 2s alternate infinite quest-cloud-dynamic, 5s quest-speech-cloud-emerg;
+}
+
+#desc-head {
+    background-color: rgba(128, 128, 128, 0.173);
+    width: 40vw;
+    height: 6vw;
+    top: 4vw;
+    left: 9vw;
+    position: absolute;
+    font-size: 4vw;
+}
+
+#desc-image-content {
+    background-color: rgba(128, 128, 128, 0.173);
+    width: 40vw;
+    height: 35vw;
+    top: 12vw;
+    left: 8vw;
+    position: absolute;
+}
+
+#desc-text-content {
+    background-color: rgba(128, 128, 128, 0.173);
+    width: 43vw;
+    height: 29vw;
+    top: 5vw;
+    left: 52vw;
+    position: absolute;
+    break-inside: auto;
+    font-size: 2.5vw;
+}
+
+@keyframes card0-onleft {
+    from {
+        left: 0vw;
+        margin-left: 0;
+        transform: scale(1);
+    }
+    to {
+        left: 54%;
+        margin-left: -15vw;
+        transform: scale(1.2);
+        filter: blur(0px);
+        z-index: 3;
+        background-blend-mode: color;
+        background-color: rgba(0, 0, 0, 0.2);
+        color: white;
+        top: -0.2vw;
+    }
+}
+
+@keyframes card1-onleft {
+    from {
+        left: 26vw;
+        transform: scale(1);
+        filter: blur(0px);
+    }
+    to {
+        transform: scale(0.828);
+        left: 47.5vw;
+        filter: blur(3px);
+        z-index: 1;
+        background-blend-mode: color-dodge;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: rgba(179, 179, 179, 0.5);
+    }
+}
+
+@keyframes card2-onleft {
+    to {
+        left: 42%;
+        z-index: 0;
+    }
+}
+
+@keyframes card2-onright {
+    from {
+        transform: scale(1);
+    }
+    to {
+        left: 54%;
+        margin-left: -15vw;
+        transform: scale(1.2);
+        filter: blur(0px);
+        z-index: 3;
+        background-blend-mode: color;
+        background-color: rgba(0, 0, 0, 0.2);
+        color: white;
+        top: -0.2vw;
+    }
+}
+
+@keyframes card1-onright {
+    from {
+        left: 26vw;
+        transform: scale(1);
+        filter: blur(0px);
+    }
+    to {
+        transform: scale(0.828);
+        left: 12.5vw;
+        filter: blur(3px);
+        z-index: 0;
+        background-blend-mode: color-dodge;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: rgba(179, 179, 179, 0.5);
+    }
+}
+
+@keyframes card0-onright {
+    from {
+        left: 0vw;
+        margin-left: 0;
+    }
+    to {
+        left: 100%;
+        margin-left: -25vw;
+    }
+}
+
+@keyframes quest-cloud-dynamic {
+    to {
+        top: 2.4vw;
+    }
+}
+
+
+@keyframes quest-speech-cloud-appear {
+    from {
+        left: -68%;
+    }
+}
+
+@keyframes quest-speech-cloud-emerg {
+    from {
+        opacity: 0;
+    }
+}
+
+@keyframes st-quest-card-appear {
+    from {
+        opacity: 0;
+    }
+}
+
+@keyframes header-text-slide {
+    from {
+        left: -14vw;
+    }
+    to {
+        left: 2.5vw;
+    }
+}
+
+@keyframes header-text-appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes text-print {
+    from {
+        width: 0;
+    }
+}
+
+@keyframes moon-appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.25;
+    }
+}
+
+@keyframes moon-slide {
+    from {
+        top: 40vw;
+        left: 75vw;
+    }
+    to {
+        top: 14vw;
+        left: 70vw;
+    }
+}
+
+@keyframes moonlight-dynamic {
+    from {
+        background: radial-gradient(rgba(168, 201, 255, 0.3) 30%, rgba(255,255,255, 0) 60%);
+    }
+    to {
+        background: radial-gradient(rgba(168, 201, 255, 0.32) 30%, rgba(255,255,255, 0) 60.5%);
+    }
+}
