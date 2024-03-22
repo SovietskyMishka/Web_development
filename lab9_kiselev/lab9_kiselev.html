@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>kiselev.Math</title>
+        <link rel="stylesheet" href="lab9style.css" type="text/css">
+    </head>
+    <body id="container">
+        <main>
+        <section class="plate">
+            <img src="formula.png" class = "img-size" alt="b = Math.sqrt(y + Math.cbrt(x)) - 1 + 2 * z">
+            <p><b>Вычислить значение переменной <i class="answer">b</i>:</b></p>
+            <p><span id="xyz"></span></p>
+            <p><span id="b"></span></p>
+        </section>
+        <br><button onclick="calcB()" class="btn"><b>Вычислить</b></button>
+        </main>
+        <button class="info-btn" onclick="infoWindow()"><b>?</b></button>
+        <script>
+            "use strict"
+            function calcB() {
+                var userInput;
+                function inputValue(varName) {
+                    userInput = parseFloat(prompt('Введите значение '+varName+':'));
+                    if (isNaN(userInput)) {
+                        alert('Некорректное значение, попробуйте ещё раз...');
+                        inputValue(varName);
+                    }
+                    return userInput;
+                }
+
+                let x = inputValue('x');
+                let y = inputValue('y');
+                let z = inputValue('z');
+                document.getElementById('xyz').innerHTML = '<b>x</b> = '+x+'<p><b>y</b> = '+y+'</p><p><b>z</b> = '+z+'</p>';
+
+                let b = Math.sqrt(y + Math.cbrt(x)) - 1 + 2 * z;
+                document.getElementById('b').innerHTML = '<b><i class="answer">b</i></b> = '+b;
+            }
+            
+            document.body.onload = addElement;
+            var elem = (window = null);
+            function infoWindow() {
+                if (isNaN(elem)) {
+                var window = document.createElement("div");
+                var info_bg = document.createElement("div");
+                window.className = "infoWindow";
+                info_bg.className = "info-bg";
+                window.onclick = (event) => { removeWindow(); }
+                window.innerHTML = "<h1>Разработчик:<br>Киселёв Артём</h1><br><h2>8.101-1</h2>";
+                elem = document.getElementById("main");
+                document.body.insertBefore(window, elem);
+                document.body.insertBefore(info_bg, elem);
+                }
+            }
+
+             function removeWindow() {
+                var del = document.body.lastChild.remove();
+                var del = document.body.lastChild.remove();
+                elem = NaN;
+            }
+        </script>
+    </body>
+</html>

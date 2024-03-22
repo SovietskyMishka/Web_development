@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<htlm>
+    <head>
+        <meta charset="UTF-8">
+        <title>MyHouse</title>
+        <link rel="stylesheet" href="myhousestyle.css" type="text/css">
+    </head>
+    <body>
+        <div id="conteiner">
+            <header>
+                <img src="baner-logo-fon/shapka_div.jpg" id="header_img"/>
+            </header>
+            <nav>
+                <a href="main.html"><img src="baner-logo-fon/logo_myhouse.png" id="nav_logo"/></a>
+                <div class="ord_button">
+                    <a href="form.html"><h3>Заказать проект</h3></a>
+                </div>
+                <h3>Категории проектов</h3>
+                <ol>
+                    <li class="text_button"><a href="foreign.html">Проекты таунхаусов и блокированных домов</a></li>
+                    <a><li>Проекты домов на две семьи</li></a>
+                    <a><li>Проекты узких домов</li></a>
+                    <a><li>Проекты бань</li></a>
+                </ol>
+                <h3>Каталог архитектурных проектов</h3>
+                <ul>
+                    <a><li>Проекты кирпичных домов</li></a>
+                    <a><li>Проекты домов из газобетона и пенобетона</li></a>
+                    <a><li>Проекты домов из бруса и бревна</li></a>
+                    <a><li>Проекты каркасных домов</li></a>
+                </ul>
+                <h3>Площади домов</h3>
+                <ul>
+                    <a><li>до 150 м<sup>2</sup></li></a>
+                    <a><li>от 150 м<sup>2 до 250 м<sup>2</sup></li></a>
+                    <a><li>до 250 м<sup>2</sup> до 400 м<sup>2</sup></li></a>
+                    <a><li>от 400 м<sup>2</sup></li></a>
+                </ul>
+                <h3>Садовые участки</h3>
+            </nav>
+            <main>
+               <h1>Проект Rg5003</h1>
+               <div id="gallery-block">
+                    <div id="big-picture">
+                        <img src="" name="big_pict" alt="Big picture">
+                    </div>
+                    <button id="swipe_left"><img src="baner-logo-fon/swipe_arrow.png"></button>
+                    <div id="gallery-line">
+                        <div class="gallery-grid">
+                            <img src="" name="pict1" alt="picture">
+                        </div>
+                        <div class="gallery-grid">
+                            <img src="" name="pict2" id ="img-selector" alt="picture">
+                        </div>
+                        <div class="gallery-grid">
+                            <img src="" name="pict3" alt="picture">
+                        </div>
+                    </div>
+                    <button id="swipe_right"><img src="baner-logo-fon/swipe_arrow.png"></button>
+                    <script src="js/gallery.js"></script>
+               </div>
+               <div id="feature-block">
+                    <script>
+                        var features = {
+                            info: () => {
+                                let output = document.getElementById("feature-block");
+                                let text = document.createElement('span');
+                                text.innerHTML = "<h3>Характеристики проекта</h3> "+
+                                                "Общая площадь.....................481,2 кв.м<br>"+
+                                                "Жилая площадь........................202 кв.м<br>"+
+                                                "Размеры дома.....................30,5 x 19,9 м<br>"+
+                                                "Высота здания..............................10,9 м<br>"+
+                                                "Количество комнат...............................9<br>"+
+                                                "Количество спален...............................7<br>"+
+                                                "Гараж...............................................есть<br>"+
+                                                "Отделка..........штукатурка, клинкерная плитка, деревянные панели<br>"+
+                                                "Материал стен.....пеноблок / газобетон<br>"+
+                                                "Фундамент..ленточный монолитный ж/б<br>"+
+                                                "Перекрытия.......монолитные ж/б плиты<br>"
+                                output.appendChild(text);
+                            },
+                            createButton: () => {
+                                var parent = document.getElementById("feature-block");
+                                var button = document.createElement('button');
+                                button.innerText = "Задать вопрос по проекту";
+                                button.setAttribute('id', 'feature_btn');
+                                parent.appendChild(button);
+                            }
+                        };
+                        features.info();
+                        features.createButton();
+
+                        feature_btn.onclick = function() {
+                            let par = document.getElementById("conteiner");
+                            let dark_bg = document.createElement('div');
+                            let q_window = document.createElement('div');
+                            dark_bg.setAttribute('id', 'dark_bg');
+                            q_window.setAttribute('id', 'q_window');
+                            q_window.innerHTML = 
+                            '<h2>Задать вопрос по проекту Rg5003</h2><br>'+
+                            '<form><table><tr><td>Имя: </td><td><input id="name-input"></input></td></tr>'+
+                            '<tr><td>E-mail: </td><td><input type="email" id="email-input"></input></td></tr></table><br>'+
+                            '<textarea></textarea><br>'+
+                            '<button type="submit" id="">Отправить</button></form>'
+                            par.append(dark_bg);
+                            par.append(q_window);
+
+                            dark_bg.onclick = function() {
+                                dark_bg.remove();
+                                q_window.remove();
+                            }
+                        }
+
+                    </script>
+               </div>
+               <div class="calc-block-left">
+                    <h3>Исходные данные</h3>
+                    <form id="form">
+                        <table>
+                            <tr>
+                                <td>Габариты</td>
+                                <td><input id="dimension1" type="number"></input> x <input id="dimension2" type="number"></input></td>
+                            </tr>
+                            <tr>
+                                <td>Этажность</td>
+                                <td><input id="storey" type="number"></input></td>
+                            </tr>
+                            <tr>
+                                <td>Высота цоколя</td>
+                                <td><input id="plinth_h" type="number"></input></td>
+                            </tr>
+                            <tr>
+                                <td>Высота этажа</td>
+                                <td><input id="storey_h" type="number"></input></td>
+                            </tr>
+                            <tr>
+                                <td>Высота конька</td>
+                                <td><input id="ridge_h" type="number"></input></td>
+                            </tr>
+                            <tr>
+                                <td><input id="mans" type="checkbox"></input><br>Мансарда</td>
+                                <td><input id="plin" type="checkbox"></input><br>Цокольный этаж</td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+                <div class="calc-block-right">
+                    <h3>Рассчитаные параметры</h3>
+                    <div class="table-border">
+                        <div class = "calc-unit">
+                            <table>
+                                <tr>
+                                    <td>Периметр, м/пог</p></td>
+                                    <td id="perimeter"></td>
+                                </tr>
+                                <tr>
+                                    <td>Несущие стены, м/пог</td>
+                                    <td id="walls"></td>
+                                </tr>
+                                <tr>
+                                    <td>Площадь основания</td>
+                                    <td id="square"></td>
+                                </tr>
+                                <tr>
+                                    <td>Общая площадь</td>
+                                    <td id="total-square"></td>
+                                </tr>
+                                <tr>
+                                    <td>Площадь фронтона</td>
+                                    <td id="f_square"></td>
+                                </tr>
+                                <tr>
+                                    <td>Площадь крыши</td>
+                                    <td id="roof-square"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class = "calc-unit">
+                            <table>
+                                <tr>
+                                    <td>Площадь внешних стен под отделку</td>
+                                    <td id="external-walls"></td>
+                                </tr>
+                                <tr>
+                                    <td>Площадь несущих стен</td>
+                                    <td id="bearing-walls"></td>
+                                </tr>
+                                <tr>
+                                    <td>Площадь (длина) внутренних стен</td>
+                                    <td id="inside-walls"></td>
+                                </tr>
+                                <tr>
+                                    <td>Площадь (под отделку) внутренних стен</td>
+                                    <td id="finish-inside-walls"></td>
+                                </tr>
+                                <tr>
+                                    <td>Площадь поверхн. под обл. цоколя</td>
+                                    <td id="plin-square"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div id="calc-block-bottom">
+                    <h3>Технологии и материалы</h3>
+                    <div class="table-border">
+                        <div class="bottom-unit">
+                            <table>
+                                <tr class="output-row">
+                                    <td><p>Стена несущая</p></td>
+                                    <td id="bearing-price"></td>
+                                </tr>
+                            </table>
+                            <table>
+                                <tr>
+                                    <td><input id="bear1" type="radio" name="bearing">Дюрисол</input></td>
+                                </tr>
+                                <tr>
+                                    <td><input id="bear2" type="radio" name="bearing">Пенополистирол</input></td>
+                                </tr>
+                                <tr>
+                                    <td><input id="bear3" type="radio" name="bearing">Газобетон 1 блок</input></td>
+                                </tr>
+                                <tr>
+                                    <td><input id="bear4" type="radio" name="bearing">Кирпич 1 шт.</input></td>
+                                </tr>
+                                <tr>
+                                    <td><input id="bear5" type="radio" name="bearing">Кирпич 1.5 шт.</input></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="bottom-unit">
+                            <table>
+                                <tr class="output-row">
+                                    <td><p>Отделка наружняя</p></td>
+                                    <td id="external-price"></td>
+                                </tr>
+                            </table>
+                            <table>
+                                <tr>
+                                    <td><input id="extern1" type="radio" name="external">Облицовочный кирпич</input></td>
+                                </tr>
+                                <tr>
+                                    <td><input id="extern2" type="radio" name="external">Штукатурка</input></td>
+                                </tr>
+                                <tr>
+                                    <td><input id="extern3" type="radio" name="external">Структурная штукатурка, окраска</input></td>
+                                </tr>
+                                <tr>
+                                    <td><input id="extern4" type="radio" name="external">Дикий камень(кирпич)</input></td>
+                                </tr>
+                                <tr>
+                                    <td><input id="extern5" type="radio" name="external">Сайдинг</input></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="bottom-unit">
+                            <table>
+                                <tr class="output-row">
+                                    <td><p>Фундамент</p></td>
+                                    <td id="fund-price"></td>
+                                </tr>
+                            </table>
+                            <table>
+                                <tr>
+                                    <td><input id="fund1" type="radio" name="fund">Буронабивной(свайно-ростверковый)</input></td>
+                                </tr>
+                                <tr>
+                                    <td><input id="fund2" type="radio" name="fund">Ленточный</input></td>
+                                </tr>
+                                <tr>
+                                    <td><input id="fund3" type="radio" name="fund">Цокольный этаж(блоки ФБС)</input></td>
+                                </tr>
+                                <tr>
+                                    <td><input id="fund4" type="radio" name="fund">Плитный ж/б фундамент(плита)</input></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <script src="js/calc.js"></script>
+            </main>
+        </div>
+    </body>
+</htlm>

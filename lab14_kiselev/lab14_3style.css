@@ -1,0 +1,39 @@
+* {
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+body {
+    background-color: aqua;
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+#container {
+    margin-top: 50px;
+    height: 700px;
+    width: auto;
+}
+
+img {
+    border-radius: 20px;
+}
+
+#img-box {
+    height: auto;
+    width: 200px;
+}
+
+#message-box {
+    font-family: Arial;
+    font-size: 50px;
+    padding-top: 400px;
+    color: white;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.541);
+    left: 0;
+    top: 0;
+    position: fixed;
+    height: 700px;
+    width: 100%;
+}

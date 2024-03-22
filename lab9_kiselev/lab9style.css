@@ -1,0 +1,133 @@
+* {
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+body {
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+#container {
+    text-align: center;
+    height: 0 auto;
+    width: 782px;
+    left: 19%;
+}
+
+main {
+    background-color: rgb(118, 207, 156);
+    border-style: ridge;
+    border-width: 20px;
+    border-radius: 40px;;
+    padding: 40px;
+    text-align: center;
+    height: 550px;
+    width: 550px;
+    position: relative;
+    margin-top: 3%;
+    float: left;
+    left: 6%;
+}
+
+.img-size {
+    border-radius: 40px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.btn {
+    background-color: rgb(219, 49, 249);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 22px;
+    border-radius: 40px;
+    border: 0;
+    color: #FFF;
+    width: 40%;
+    height: 11%;
+    margin: 3%;
+}
+
+.btn:hover {
+    background-color: rgb(211, 90, 227);
+    width: 41%;
+    border: 0px;
+}
+
+.info-btn {
+    background-color: rgb(219, 49, 249);
+    border-radius: 15px;
+    border: 0px;
+    color: #FFF;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 40px;
+    height: 55px;
+    width: 55px;
+    margin-left: 7%;
+    margin-top: 10%;
+    float: left;
+}
+
+.info-btn:hover {
+    background-color: rgb(211, 90, 227);
+    border: 0px;
+    height: 57px;
+    width: 57px;
+}
+
+main p {
+    margin-top: 5%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 19px;
+    color:#ededed;
+}
+
+.plate {
+    background-color: rgb(93, 93, 93);
+    border-radius: 50px;
+    margin-top: 20%;
+    padding: 5%;
+    width: 450px;
+    height: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.answer {
+    font-size: 30px;
+}
+
+.infoWindow {
+    background-color: rgb(93, 93, 93);
+    outline-width: 20px;
+    outline-style: inset;
+    outline-color: rgb(219, 49, 249);
+    border-radius: 25px;
+    color:#FFF;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    float: left;
+    margin-left: 205px;
+    margin-top: 177px;
+    width: 350px;
+    height: 150px;
+    padding-top: 35px;
+    position: fixed;
+    text-align: center;
+    z-index: 9999;
+}
+
+.infoWindow:hover {
+    background-color: rgb(105, 105, 105);
+}
+
+.info-bg {
+    background-color: rgba(80, 80, 80, 0.5);
+    height: 100%;
+    position: absolute;
+    margin: 0 auto;
+    padding: 0 auto;
+    width: 100%;
+    left: 0%;
+    z-index: 9998;
+}

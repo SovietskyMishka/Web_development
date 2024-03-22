@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Kiselev_lab16_1</title>
+        <link rel="stylesheet" href="lab16_1style.css" type="text/css">
+    </head>
+    <body>
+        <div id="container">
+            <h1>Canvas</h1>
+            <button id="info" onclick="info()">?</button>
+            <canvas width="400px" height="400px"></canvas>
+            <div id="select-pad">
+                <button id="circ-btn" onclick="circ()">Circ</button><br>
+                <button id="rect-btn" onclick="rect()">Rect</button><br>
+                <button id="hline-btn" onclick="hline()">H.line</button><br>
+                <button id="vline-btn" onclick="vline()">V.line</button><br>
+                <button id="clear-btn" onclick="clearCanv()">Clear</button><br>
+            </div>
+        </div>
+        <script>
+            "use strict"
+
+            var canvas = document.querySelector('canvas');
+            var ctx = canvas.getContext('2d');
+
+            function xCenter(w) {
+                let x = Math.abs((canvas.width - w) / 2); 
+                return x;
+            }
+
+            function yCenter(h) {
+                let y = Math.abs((canvas.height - h) / 2);
+                return y;
+            }
+
+            function createDiv() {
+                if (document.querySelector('#output')) {
+                    removeDiv();
+                }
+                let parent = document.getElementById('container');
+                let div = document.createElement('div');
+                div.setAttribute('id', 'output');
+                parent.appendChild(div);
+            }
+
+            function removeDiv() {
+                let del = document.getElementById('output');
+                del.remove();
+            }
+
+            function addText(str) {
+                let parent = document.getElementById('output');
+                let text = document.createElement('span');
+                text.innerHTML = str;
+                parent.appendChild(text);
+            }
+
+            function addInput(typeName, idName) {
+                let parent = document.getElementById('output');
+                let input = document.createElement('input');
+                let br = document.createElement('br');
+                input.setAttribute('type', typeName);
+                input.setAttribute('id', idName);
+                parent.appendChild(input);
+                parent.appendChild(br);
+            }
+
+            function addButton(idName, btnText) {
+                let parent = document.getElementById('output');
+                let btn = document.createElement('button');
+                btn.setAttribute('id', idName);
+                btn.innerText = btnText;
+                parent.appendChild(btn);
+            }
+
+            function circ() {
+                createDiv();
+                addText("<h2>Круг</h2>");
+                addText("Диаметр: ");
+                addInput("number", "circ-size");
+                addText("<br>Цвет: ");
+                addInput("text", "circ-color");
+                addText("<br>Цвет контура: ");
+                addInput("text", "circ-border");
+                addButton('draw_btn', 'Draw');
+                document.getElementById("circ-size").value = Number(50);
+                draw_btn.onclick = function() {
+                    let circ_size = document.getElementById('circ-size').value;
+                    let circ_color = document.getElementById('circ-color').value;
+                    let circ_border = document.getElementById('circ-border').value;
+                    ctx.beginPath();
+                    ctx.arc(canvas.width / 2, canvas.height / 2, circ_size, 0, (Math.PI / 180) * 360);
+                    if (circ_color != '') {
+                        ctx.fillStyle = circ_color;
+                        ctx.fill();
+                    }
+                    if (circ_border == '') {
+                        circ_border = circ_color;
+                    }
+                    ctx.strokeStyle = circ_border;
+                    ctx.stroke();
+                    ctx.closePath();
+                }
+            }
+
+            function rect() {
+                createDiv();
+                addText("<h2>Прямоугольник</h2>");
+                addText("Ширина: ");
+                addInput("number", "rect-w");
+                addText("<br>Высота: ");
+                addInput("number", "rect-h");
+                addText("<br>Цвет: ");
+                addInput("text", "rect-color");
+                addText("<br>Цвет контура: ");
+                addInput("text", "rect-border");
+                addButton('draw_btn', 'Draw');
+                document.getElementById("rect-w").value = Number(100);
+                document.getElementById("rect-h").value = Number(100);
+                draw_btn.onclick = function() {
+                    let rect_w = document.getElementById('rect-w').value;
+                    let rect_h = document.getElementById('rect-h').value;
+                    let rect_color = document.getElementById('rect-color').value;
+                    let rect_border = document.getElementById('rect-border').value;
+                    ctx.beginPath();
+                    ctx.rect(xCenter(rect_w), yCenter(rect_h), rect_w, rect_h);
+                    if (rect_color != '') {
+                        ctx.fillStyle = rect_color;
+                        ctx.fill();
+                    }
+                    if (rect_border == '') {
+                        rect_border = rect_color;
+                    }
+                    ctx.strokeStyle = rect_border;
+                    ctx.stroke();
+                    ctx.closePath();
+                }
+            }
+
+            function hline() {
+                createDiv();
+                addText("<h2>Горизонтальная линия</h2>");
+                addText("Длина: ");
+                addInput("number", "hline-size");
+                addText("<br>Цвет: ");
+                addInput("text", "hline-color");
+                addButton('draw_btn', 'Draw');
+                document.getElementById("hline-size").value = Number(350);
+                document.getElementById("hline-color").value = "black";
+                draw_btn.onclick = function() {
+                    let hline_size = document.getElementById('hline-size').value;
+                    let hline_color = document.getElementById('hline-color').value;
+                    ctx.beginPath();
+                    ctx.moveTo(xCenter(hline_size) * 2, canvas.height / 2);
+                    ctx.lineTo(hline_size, canvas.height / 2);
+                    ctx.strokeStyle = hline_color;
+                    ctx.stroke();
+                    ctx.closePath();
+                }
+            }
+
+            function vline() {
+                createDiv();
+                addText("<h2>Вертикальная линия</h2>");
+                addText("Длина: ");
+                addInput("number", "vline-size");
+                addText("<br>Цвет: ");
+                addInput("text", "vline-color");
+                addButton('draw_btn', 'Draw');
+                document.getElementById("vline-size").value = Number(350);
+                document.getElementById("vline-color").value = "black";
+                draw_btn.onclick = function() {
+                    let vline_size = document.getElementById('vline-size').value;
+                    let vline_color = document.getElementById('vline-color').value;
+                    ctx.beginPath();
+                    ctx.moveTo(canvas.width / 2, yCenter(vline_size) * 2);
+                    ctx.lineTo(canvas.width / 2, vline_size);
+                    ctx.strokeStyle = vline_color;
+                    ctx.stroke();
+                    ctx.closePath();
+                }
+            }
+            
+            function clearCanv() {
+                ctx.beginPath();
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.closePath();
+            }
+
+            function info() {
+                if (document.getElementById('info_bg')) {
+                    let del = document.querySelector('info_bg');
+                    del.remove();
+                }
+                let parent = document.body;
+                let bg = document.createElement('div');
+                let table = document.createElement('div');
+                table.innerHTML = "<h2>Разработчик:</h2>Киселёв Артём<br>8.101-1"
+                bg.setAttribute('id', 'info_bg');
+                parent.appendChild(bg);
+                bg = document.querySelector('#info_bg');
+                bg.appendChild(table);
+                info_bg.onclick = function() {
+                    let del = document.querySelector('#info_bg');
+                    del.remove();
+                }
+            }
+
+            function cursor() {
+                let parent = document.body;
+                let pntr = document.createElement('div');
+                pntr.setAttribute('class', 'pointer');
+                parent.appendChild(pntr);
+                const body = document.querySelector('body');
+                body.style.cursor = 'none';
+                const cursorPointed = document.querySelector('.pointer');
+                const moveCursor = (e) => {
+                    const mouseY = e.clientY - 3;
+                    const mouseX = e.clientX - 8;
+                    cursorPointed.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+                }
+                window.addEventListener('mousemove', moveCursor);
+            }
+            cursor();
+        </script>
+    </body>
+</html>

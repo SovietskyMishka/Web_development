@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Изменение изображения при наведении мышкой</title>
+    <script>
+        "use strict"
+
+        var k=1
+        function ref () {k=5};
+        function succpict()
+        {
+        let d=document;
+        if (k<=4) {
+            if (k==1) { 
+                d.mypict1.src="m1.gif"; k++}
+            else if (k==2) {
+                d.mypict1.src="m2.gif"; k++}
+            else if (k==3) {
+                d.mypict1.src="m3.gif"; k++}
+            else if (k==4) {
+                d.mypict1.src="m4.gif"; k=1}
+            setTimeout("succpict()", 1000)
+        } 
+    }
+
+        function succpict2() {
+            let d = document;
+            var w = d.mypict2.width
+            if (w > 150) { 
+                d.mypict2.width = w-10;
+                d.mypict2.src = "image1.jpg";
+                setTimeout("succpict2()", 50)
+            }
+        }
+
+        function chan(obj) {
+            var r1 = Number(obj.a1.value); 
+            var r2=Number(obj.a2.value);
+            if ((r1<1)||(r1>4)||(r2<1)||(r2>4)) {
+                alert ("Неверно заданы номера рисунков!")
+            } 
+            else { 
+                var z = document.images[r1-1] .src
+                document.images[r1-1].src=document.images[r2-1].src;  
+                document.images[r2-1].src=z  
+           }
+        }
+
+        var flag = 0;
+        function changeImage() {
+            if (flag == 0) {
+                document.img.src = 'image1.jpg';
+                flag = 1;
+            }
+            else {
+                document.img.src = 'image2.jpg';
+                flag = 0;
+            }
+        }
+
+    </script>
+    
+</head>
+<body onLoad="succpict()">
+    <h3>Просмотр рисунков</h3>
+    <img src="m1.gif" name=mypict1 width=100>
+    <div>
+    <input type="reset" value="Остановить" onClick=ref()>
+    <input type="button" value="Haчать снова" onClick="k=1; succpict()">
+    </div>
+    <h4>При наведении курсора мыши над рисунком изображение начинает удаляться от зрителя</h4>
+    <div>    
+        <IMG src="image1.jpg" name="mypict2" onMouseOver="succpict2()">
+    </div>
+    <center>
+        <h4>Галерея рисунков</h4><br>  
+        <IMG src="m1.gif" width="200" name="pic1" alt="№ 1">  
+        <IMG src="m2.gif" width="200" name="pic2" alt="№ 2">  
+        <IMG src="m3.gif" width="200" name="pic3" alt="№ 3">  
+        <IMG src="m4.gif" width="200" name="pic4" alt="№ 4"><br><br>  
+        <form name="form1">
+            Рисунки с номерами<br>  
+            <input type="text" name="a1" size=1> и  
+            <input type="text" name="a2" size=1><p>  
+            <input type="button" value="Поменять местами" onClick="chan(form1)">  
+        </form>  
+    </center>
+    <img name = 'img' src = 'image1.jpg' />
+    <form>
+        <input type = 'button' value = 'Сменить изображение' onClick = 'changeImage()' />
+    </form>
+
+</body>
+</html>

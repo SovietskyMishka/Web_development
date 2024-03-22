@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiselev_81011</title>
+    <link rel="stylesheet" href="lab13_1style.css" type="text/css">
+</head>
+<body>
+    <div id="container">
+        <b>Киселёв Артём 8.101-1</b>
+        <h1>Лабораторная работа №13 "Объекты"</h1>
+        <button id="btn1" type="button">mouse.info()</button>
+        <button id="btn2" type="button">mouse.cursor()</button>
+    <div>
+    <script>
+        "use strict"
+        var click_counter = 0;
+        var mouse = {
+            color: "чёрный",
+            connection: "проводное",
+            power: "USB",
+            ips: "600",
+            image: "https://img.freepik.com/premium-photo/wireless-computer-mouse-on-white-isolated-background_131301-1335.jpg",
+            info: function() {
+                function addElem(tag, text) {
+                    let p_div = document.querySelector('.mouseinfo');
+                    let elem = document.createElement(tag);
+                    elem.innerHTML = text;
+                    p_div.appendChild(elem);
+                }
+                let parent = document.querySelector('#container');
+                let div = document.createElement('div');
+                div.setAttribute('class', 'mouseinfo');
+                parent.appendChild(div);
+                let p_div = document.querySelector('.mouseinfo');
+                addElem('h2',"Компьютерная мышь<br>");
+                addElem('span',"Основной цвет: "+this.color+"<br>");
+                addElem('span',"Тип подключения: "+this.connection+"<br>");
+                addElem('span',"Тип источника питания: "+this.power+"<br>");
+                addElem('span',"Скорость(IPS): "+this.ips+"<br>");
+                let p_img = document.querySelector('.mouseinfo');
+                let img = document.createElement('img');
+                img.setAttribute('src', this.image);
+                p_img.appendChild(img);
+            },
+            cursor: function(obj) {
+                let parent = document.querySelector(obj);
+                let pntr = document.createElement('div');
+                pntr.setAttribute('class', 'pointer');
+                parent.appendChild(pntr);
+                const body = document.querySelector('body');
+                body.style.cursor = 'none';
+                const cursorPointed = document.querySelector('.pointer');
+                const moveCursor = (e) => {
+                    const mouseY = e.clientY - 30;
+                    const mouseX = e.clientX - 28;
+                    cursorPointed.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+                }
+                window.addEventListener('mousemove', moveCursor);
+            }
+        };
+
+        btn1.onclick = function() {
+            mouse.info();
+        }
+        btn2.onclick = function() {
+            if (click_counter == 0) {
+                mouse.cursor('body');
+            }
+            if(click_counter == 3) {
+                let pointer = document.querySelector('.pointer');
+                pointer.style.width = '100px';
+                pointer.style.height = '125px';
+                pointer.style.backgroundImage = 'url(https://usagif.com/wp-content/uploads/gifs/rat-58.gif)';
+            }
+            click_counter++;
+        }
+    </script>
+</body>
+</html>

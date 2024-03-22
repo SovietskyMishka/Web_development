@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>kiselev_10.1</title>
+        <link rel="stylesheet" href="lab10_1style.css" type="text/css">
+    </head>
+    <body>
+        <div id="container">
+            <b>Введите номер месяца:</b>
+            <input id="monthNum" name="month_input" type="number">
+            <button id="button">Ввод</button>
+            <br><span id="seassonsOfYear"></span>
+            <br><span id="imgbox"></span>
+        </div>
+        <script>
+            let img;
+            function output(str) {
+                document.getElementById('seassonsOfYear').innerHTML = str;
+            }
+            let input;
+            button.onclick = function() {
+                input = +document.getElementById('monthNum').value;
+                switch(input) {
+                    case 1: output('<h2>Январь<br>Зима</h2>'); img = 1; break;
+                    case 2: output('<h2>Февраль<br>Зима</h2>'); img = 1; break;
+                    case 3: output('<h2>Март<br>Весна</h2>'); img = 2; break;
+                    case 4: output('<h2>Апрель<br>Весна</h2>'); img = 2; break;
+                    case 5: output('<h2>Май<br>Весна</h2>'); img = 2; break;
+                    case 6: output('<h2>Июнь<br>Лето</h2>'); img = 3; break;
+                    case 7: output('<h2>Июль<br>Лето</h2>'); img = 3; break;
+                    case 8: output('<h2>Август<br>Лето</h2>'); img = 3; break;
+                    case 9: output('<h2>Сентябрь<br>Осень</h2>'); img = 4; break;
+                    case 10: output('<h2>Октябрь<br>Осень</h2>'); img = 4; break;
+                    case 11: output('<h2>Ноябрь<br>Осень</h2>'); img = 4; break;
+                    case 12: output('<h2>Декабрь<br>Зима</h2>'); img = 1; break;
+                    default: output('<h2>Нет такого месяца!</h2>'); img = 0;
+                }
+                if (img == 0) {
+                    document.getElementById('imgbox').innerHTML = '<img src="wolf.gif">';
+                }
+                if (img == 1) {
+                    document.getElementById('imgbox').innerHTML = '<img src="winter.gif">';
+                }
+                if (img == 2) {
+                    document.getElementById('imgbox').innerHTML = '<img src="spring.gif">';
+                }
+                if (img == 3) {
+                    document.getElementById('imgbox').innerHTML = '<img src="summer.gif">';
+                }
+                if (img == 4) {
+                    document.getElementById('imgbox').innerHTML = '<img src="autumn.gif">';
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Kiselev_lab16_2</title>
+        <link rel="stylesheet" href="lab16_2style.css" type="text/css">
+    </head>
+    <body>
+        <div id="container">
+            <canvas ></canvas><br>
+            <div id="bg" onclick="move()" onmouseover="getBg()" onmouseleave="delBg()"></div>
+        </div>
+        <p>Картина великого художника эпохи возрождения</p>
+        <script>
+            "use strict"
+
+            var s = 0;
+            var flag = true;
+            var canvas = document.querySelector('canvas');
+            var ctx = canvas.getContext('2d');
+            function getRect(x, y, w, h, color) {
+                ctx.beginPath();
+                ctx.rect(x, y, w, h);
+                ctx.fillStyle = color;
+                ctx.fill();
+                ctx.closePath();
+            }
+
+            function getEllipse(x, y, radx, rady, rot, strang, endang, anticlock, color) {
+                ctx.beginPath();
+                ctx.ellipse(x, y, radx, rady, rot, strang, endang, anticlock);
+                ctx.fillStyle = color;
+                ctx.fill();
+                ctx.closePath();
+            }
+
+            function draw() {
+                ctx.beginPath();
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.closePath();
+                s++;
+                getRect(105 - s, 45, 31, 50, "chocolate");
+                getRect(135, 70 + s, 50, 40, "yellow");
+                getEllipse(167, 60 + s, 40, 25, 0, 360, 0, 1, "white");
+                getEllipse(167 - s, 60, 40, 25, 0, 360, 0, 1, "white");
+            }
+
+            function move() {
+                let del = document.getElementById('bg');
+                del.remove();
+                let m = setInterval(draw, 4);
+            }
+
+            function getBg() {
+                let bg = document.getElementById('bg');
+                bg.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
+                if (flag) {
+                    let text = document.createElement('h2');
+                    text.innerText = "Украсть";
+                    bg.appendChild(text);
+                    flag = false;
+                }
+            }
+
+            function delBg() {
+                let bg = document.getElementById('bg');
+                bg.style.backgroundColor = "rgba(0, 0, 0, 0)";
+                bg.lastChild.remove();
+                flag = true;
+            }
+            draw();
+        </script> 
+    </body>
+</html>

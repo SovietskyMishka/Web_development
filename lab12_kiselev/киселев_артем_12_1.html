@@ -1,0 +1,114 @@
+<html>
+   <head>
+     <meta charset="utf-8" />
+     <title>Киселев Артем</title>
+     <link href="styles.css"  rel="stylesheet"/>
+   </head>
+   
+   <body>
+        <div class="wrapper">
+            <div class="box">
+              <div id="fruits1">
+                 <h1> a) Массив fruits:</h1>
+                 <p id="fruits"> </p>
+              </div>
+           </div>
+    
+           <div class="box">
+              <div id="citrus1">
+              <h1> b) Массив citrus: </h1>
+              <p id="citrus"> </p>
+              </div>
+           </div>
+    
+           <div class="box">
+               <div id="fruits_c1">
+               <h1> c) Объединенный массив fruits:</h1>
+               <p id="fruits_c"> </p>
+               </div> 
+           </div>
+       
+        
+           <div class="box">
+                 <div id="fruits_d1">
+                 <h1> d) Массив fruits, в котором после mango вставлены: pear, cherry, plum, raspberry, strawberry:</h1>
+                 <p id="fruits_d"> </p>
+                 </div> 
+           </div>
+
+           <div class="box">
+           <div id="fruits_e1">
+            <h1> e) Массив fruits, в котором удалены последние 3 элемента:</h1>
+            <p id="fruits_e"> </p>
+        </div> 
+           </div>
+
+           <div class="box">
+               <div id="fruits_f1">
+               <h1> f) Выведите отсортированный в алфавитном порядке массив fruits: </h1>
+               <p id="fruits_f"> </p>
+               </div> 
+           </div>
+
+           <div class="box">
+               <div id="fruits_g1">
+               <h1> g) Выведите массив fruits в обратном алфавитном порядке:</h1>
+               <p id="fruits_g"> </p>
+               </div>
+           </div>
+        
+           <div class="box">
+               <div id="fruits_h1">
+               <h1> h) Выведите массив fruits, отсортированный по длине слов:</h1>
+               <p id="fruits_h"> </p>
+               </div> 
+           </div>
+        </div>
+
+
+
+      <script>
+        "use strict"
+        /*Создаём массивы*/
+        let fruits=['apple','pineapple','mango','melon','grape']; 
+        let citrus=['orange','lemon','lime'];
+
+        /*Выводим массивы*/
+        const a=fruits;
+        document.getElementById("fruits").textContent = a;
+        const b=citrus;
+        document.getElementById("citrus").textContent = b;
+
+        /*Объединение массивов*/
+        fruits.push(...citrus);
+        const c=fruits;
+        document.getElementById("fruits_c").textContent = c;
+
+        /*Добавляем новые элементы в массив*/
+        fruits.splice(3, 0, "pear","cherry","plum","raspberry", "strawberry");
+        const d=fruits;
+        document.getElementById("fruits_d").textContent = d;
+
+        /*Удаляем элементы из массива*/
+        fruits.splice(10, 12);
+        const e=fruits;
+        document.getElementById("fruits_e").textContent = e;
+
+        /*Сортировка массива в алфавитном порядке*/
+        fruits.sort( (a, b) => a.localeCompare(b) );
+        const f=fruits;
+        document.getElementById("fruits_f").textContent = f;
+
+        /*Выведение массива в обратном алфавитном порядке*/
+        fruits.reverse();
+        const g=fruits;
+        document.getElementById("fruits_g").textContent = f;
+
+        /*Выведение отсортированного массива по длине слова*/     
+        fruits.sort((a, b) => a.length - b.length);
+        const h=fruits;
+        document.getElementById("fruits_h").textContent = f;
+        </script>
+
+   </body>
+</html>

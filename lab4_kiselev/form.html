@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<htlm>
+    <head>
+        <meta charset="UTF-8">
+        <title>MyHouseForm</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+            rel="stylesheet" 
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"/>
+        <link rel="stylesheet" href="myhousestyle.css" type="text/css">
+    </head>
+    <body style="font-family: 'corbel', Courier, monospace;">
+        <div id="conteiner">
+            <header>
+                <img src="baner-logo-fon/shapka_div.jpg" id="header_img"/>
+            </header>
+            <nav style="width: 26%;">
+                <a href="main.html"><img src="baner-logo-fon/logo_myhouse.png" id="nav_logo"/></a>
+                <h3>Категории проектов</h3>
+                <ol>
+                    <li class="text_button"><a href="foreign.html">Проекты таунхаусов и блокированных домов</a></li>
+                    <a><li>Проекты домов на две семьи</li></a>
+                    <a><li>Проекты узких домов</li></a>
+                    <a><li>Проекты бань</li></a>
+                </ol>
+                <h3>Каталог архитектурных проектов</h3>
+                <ul>
+                    <a><li>Проекты кирпичных домов</li></a>
+                    <a><li>Проекты домов из газобетона и пенобетона</li></a>
+                    <a><li>Проекты домов из бруса и бревна</li></a>
+                    <a><li>Проекты каркасных домов</li></a>
+                </ul>
+                <h3>Площади домов</h3>
+                <ul>
+                    <a><li>до 150 м<sup>2</sup></li></a>
+                    <a><li>от 150 м<sup>2 до 250 м<sup>2</sup></li></a>
+                    <a><li>до 250 м<sup>2</sup> до 400 м<sup>2</sup></li></a>
+                    <a><li>от 400 м<sup>2</sup></li></a>
+                </ul>
+                <h3>Садовые участки</h3>
+            </nav>
+            <main>
+                <h1><b>Заказ проекта</b></h1>
+                <p>Вы можете послать письмо на наш электронный адрес</p>
+                <p><a href="mailto:piroshkov.vor@inbox.ru" class="btn btn-outline-light">Написать письмо</a></p>
+                <p>Здесь вы можете заполнить форму заказа для покупки проекта<br>
+                Поля со <b style="color: red">*</b> обязательны для заполнения.</p>
+                <form action="myhouse.php" method="post">
+                    <table class="table table-hover table-light table-striped">
+                        <tr>
+                            <td><p>Текст заказа в произвольной форме:</p></td>
+                            <td><textarea name="form_text" rows="5" class="w-75" style="resize:none"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td><p>Фамилия, имя, отчество<b style="color: red">*</b></p></td>
+                            <td><textarea required name="FIO-text" rows="1" class="w-75" style="resize:none"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td><p>Телефон<b style="color: red">*</b></p></td>
+                            <td><textarea required name="phone-text" rows="1" class="w-75" style="resize:none"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td><p>E-mail<b style="color: red">*</b></p></td>
+                            <td><textarea required name="Email-text" rows="1" class="w-75" style="resize:none"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td><p>Адрес</p></td>
+                            <td><textarea name="adress-text" rows="1" class="w-75" style="resize:none"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td><p>Выберите категорию проекта:</p></td>
+                            <td>
+                                <select name="project_category">
+                                    <option value="Проекты таунхаусов и блокированных домов">Проекты таунхаусов и блокированных домов</option>
+                                    <option value="Проекты домов на две семьи">Проекты домов на две семьи</option>
+                                    <option value="Проекты узких домов">Проекты узких домов</option>
+                                    <option value="Проекты бань">Проекты бань</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p>Выберите материал:</p></td>
+                            <td>
+                                <select name="project_material">
+                                    <option value="Проекты кирпичных домов">Проекты кирпичных домов</option>
+                                    <option value="Проекты домов из газобетона">Проекты домов из газобетона</option>
+                                    <option value="Проекты домов из бруса и бревна">Проекты домов из бруса и бревна</option>
+                                    <option value="Проекты каркасных домов">Проекты каркасных домов</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p>Ваш возраст:</p></td>
+                            <td>
+                                <input type="radio" name="age" value="До 18">До 18<br>
+                                <input type="radio" name="age" value="18 - 50">18 - 50<br>
+                                <input type="radio" name="age" value="Старше 50">Старше 50<br>
+                            </td>
+                        </tr>
+                    </table>
+                    <input type="submit" value="Заказать" class="btn btn-success" style="margin-left: 3%">
+                    <input type="reset" value="Очистить" class="btn btn-outline-danger" style="margin-left: 2%">
+                </form>
+            </main>
+        </div>
+    </body>
+</htlm>

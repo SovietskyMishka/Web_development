@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="utf-8"/>
+     <title>Использование  оператора IF</title>
+</head>
+   <body>
+      <script>
+"use strict"
+        document.write("<center>Использование оператора <b>IF</b></center>") ;
+        let age = 24;
+        if (age < 18) document.write("Вы слишком молоды для просмотра этого сайта");
+        // ничего не выводится
+        age = 5;
+        if (age < 18) 
+            document.write("Вы слишком молоды для просмотра этого сайта");// выводится сообщение
+            document .write("<center>Использование onepatopa <b>IF</b> с блоком <b>ELSE</b></center>") ;
+        let s = "плохо";
+        if (s == "хорошо") 
+            document.write("Я в хорошем настроении!");
+            document.write("<center>Использование оператора <b>IF</b> с блоками <b>ELSE</b> и <b>ELSEIF</b> </center>");
+        if (s == "хорошо") {
+            document.write("Я в хорошем настроении!");
+        }
+        else if (s == "плохо") {
+             document.write("He отчаивайтесь!");
+        }
+        else { 
+            document.write("Непонятно, просто", s);
+        }
+      </script>
+    </body>
+</html>

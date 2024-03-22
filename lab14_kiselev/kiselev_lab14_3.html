@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Киселёв_Артём_14_3</title>
+    <link rel="stylesheet" href="lab14_3style.css" type="text/css">
+</head>
+<body onload="message()">
+    <div id="container">
+        <div id="img-box" onmouseover="moveRound()" onmouseout="stopMoving()">
+            <img src="pic1.gif" name="mypict1" width="200px"><br>
+            <img src="pic2.gif" name="mypict2" width="200px"><br>
+            <img src="pic3.gif" name="mypict3" width="200px"><br>
+            <img src="pic4.gif" name="mypict4" width="200px"><br>
+        </div>
+    </div>
+    <script>
+        "use strict"
+        var stop = true;
+        var k = 0;
+        function moveRound(obj) {
+            let d = document;
+            if (stop) {
+                var r0 = document.images[0].src;
+                var r1 = document.images[1].src;
+                var r2 = document.images[2].src;
+                var r3 = document.images[3].src;
+                let hiddenImg = new Image();
+                hiddenImg.src = r0;
+                d.mypict1.src = r1;
+                d.mypict2.src = r2;
+                d.mypict3.src = r3;
+                d.mypict4.src = hiddenImg.src;
+                setTimeout("moveRound()", 500);
+            }
+            stop = true;
+        }
+
+        function stopMoving() {
+            stop = false;
+        }
+
+        function del_mess() {
+            const rem = document.getElementById('message-box');
+            return rem.remove();
+        }
+
+        function message() {
+            let parent = document.body;
+            let div = document.createElement('div');
+            div.setAttribute('id', 'message-box');
+            parent.appendChild(div);
+            let mess_parent = document.getElementById('message-box');
+            let mess = document.createElement('p');
+            mess.innerHTML = "Наведи курсор на картинки";
+            mess_parent.appendChild(mess);
+            setTimeout("del_mess()", 1000);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Киселёв_Артём_12.2</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="lab12_2style.css" type="text/css">
+    </head>
+    <body>
+        <div id="container">
+            <div id="left-pad">
+                <p>Введите размер массива от 4 до 20 элементов:</p>
+                <input id="array-size" type="number" name="input_size">
+                <button id="enter" type="button">Ввод</button><br>
+            </div>
+        </div>
+        <script>
+            "use strict"
+
+            var array = [];
+
+            function getRandomInt(min, max) {
+                min = Math.ceil(min);
+                max = Math.floor(max);
+                return Math.floor(Math.random() * (max - min)) + min;
+            }
+
+            function getMinElemIndex(arr) {
+                let min = arr[0];
+                let min_i = 0;
+                for (let i = 0; i < arr.length; i++) {
+                    if (arr[i] < min) {
+                        min = arr[i];
+                        min_i = i;
+                    }
+                }
+                return min_i;
+            }
+
+            function removeDiv() {
+                let parent = document.querySelector('#container');
+                parent.lastChild.remove();
+            }
+            
+            function createDiv() {
+                let parent = document.querySelector('#container');
+                let elem = document.createElement('div');
+                elem.setAttribute('id', 'output');
+                parent.appendChild(elem);
+            }
+
+            function addElement(text) {
+                let parentElem = document.querySelector('#output');
+                let p = document.createElement('p');
+                p.innerHTML = text;
+                parentElem.appendChild(p);
+            }
+            
+            function addInput(arr_size) {
+                arr_size -= 1;
+                let parent = document.querySelector('#output');
+                let clue = document.createElement('p');
+                clue.innerHTML = '<h3>Введите верхнюю и нижнюю границы A и B в пределах от 0 до '+arr_size+':</h3><br>'
+                let inputA = document.createElement('input');
+                inputA.setAttribute('id', 'A');
+                inputA.setAttribute('type', 'numbers');
+                let inputB = document.createElement('input');
+                inputB.setAttribute('id', 'B');
+                inputB.setAttribute('type', 'numbers');
+                let button = document.createElement('button');
+                button.setAttribute('type', 'button');
+                button.setAttribute('id', 'btn');
+                button.textContent = "Ввод";
+                let t1 = document.createElement('span');
+                t1.innerHTML = "<b>A: </b>";
+                let t2 = document.createElement('span');
+                t2.innerHTML = "<b>B: </b>";
+                let br1 = document.createElement('br');
+                let br2 = document.createElement('br');
+                let out = document.createElement('span');
+                out.setAttribute('id', 'outAB');
+                parent.appendChild(clue);
+                parent.appendChild(t1);
+                parent.appendChild(inputA);
+                parent.appendChild(br1);
+                parent.appendChild(t2);
+                parent.appendChild(inputB);
+                parent.appendChild(br2);
+                parent.appendChild(button);
+                parent.appendChild(out);
+            }
+
+            function average(arr, down, up) {
+                let sum = 0, count = 0;
+                for (let i = down; i <= up; i++) {
+                    sum = sum + array[i];
+                    count++;
+                }
+                let result = sum / count;
+                return result;
+            }
+
+            function multi3PosIndexCount(arr) {
+                let count = 0;
+                for(let i = 0; i < arr.length; i++) {
+                    if (i % 3 == 0 && arr[i] >= 0) {
+                        count++;
+                    }
+                }
+                return count;
+            }
+
+            enter.onclick = function() {
+                let array_size = parseInt(document.getElementById('array-size').value);
+                if (!isNaN(array_size)) {
+                    array.splice(0, array.length);
+                    removeDiv();
+                }
+                if (array_size >= 4 && array_size <= 20) {
+                    createDiv();
+                    for (let i = 0; i < array_size; i++) {
+                        array.push(getRandomInt(-10, 10));
+                    }
+                    addElement('<b>Сгенерированный массив: </b>'+array);
+                    let min_index = getMinElemIndex(array);
+                    addElement('<b>Минимальный элемент: </b>'+array[min_index])
+                    array[min_index] = array[0] + array[array.length - 1];
+                    addElement('<b>Изменённый массив: </b>'+array);
+                    addInput(array_size);
+                    btn.onclick = function() {
+                        let a = parseInt(document.getElementById('A').value);
+                        let b = parseInt(document.getElementById('B').value);
+                        let res = average(array, a, b);
+                        let countpos = multi3PosIndexCount(array);
+                        if(!isNaN(res)) {
+                            document.getElementById('outAB').innerHTML = '<br><b>Среднее арифметическое от array['+a+'] до array['+b+'] = </b>'+res+
+                            '<br><b>Количество положительных чисел, стоящих на местах кратных 3 = </b>'+countpos;
+                        }
+                        else {
+                            document.getElementById('outAB').innerHTML = '<br><b>Недопустимое значение границ!</b>';
+                        }
+                    }
+                }
+                else {
+                    if (!isNaN(array_size)) {
+                        createDiv()
+                        addElement('<h1>Недопустимое значение:</h1>');
+                        if (array_size < 4) {
+                            addElement('<h2>размер массива < 4!</h2>');
+                        }
+                        if (array_size > 15) {
+                            addElement('<h2>размер массива > 20!</h2>');
+                        }
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

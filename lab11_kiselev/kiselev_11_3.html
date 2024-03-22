@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Киселёв_Артём</title>
+    <link rel="stylesheet" href="lab11_3style.css" type="text/css">
+</head>
+<body>
+    <div id="container">
+        <p><b>Выполнил студент:</b> Киселёв Артём 8.101-1<p><br>
+        <p><b>Номер варианта: 8</b></p><br>
+        <p><b>Задание:</b><br>Дана строка s, состоящая из слов (последовательностей символов, не
+            содержащих пробелов внутри себя), разделенных между собой одним 
+            или несколькими пробелами. Определить, сколько слов состоит из одинаковых
+             символов, например: aaaaa, eee.</p><br>
+        <p>Введите строку s:</p>
+        <input id='text' type = 'text' name="name_input" ><br>
+        <button id="btn" type="button">Ввести</button><br>
+        <span id="p-output"></span>
+        <span id="output"></span>
+        <span id="gif"></span>
+    </div> 
+    <script>
+        "use strict"
+
+        let text;
+        let counter = 0, i = 0;
+        function subsequense(text) {
+            let countOfSubsequence = 0;
+            let i = 0;
+            text = ' ' + text + ' ';
+            for (; i < String(text).length; i++) {
+                if (text[i] == ' ' && text[i + 1] != ' ') {
+                    let j = i + 1;
+                    for(; j < String(text).length; j++) {
+                        if (text[j] == text[j + 1]) {
+                            counter++;
+                        }
+                        else {
+                            if(text[j + 1] == ' ' && counter > 0) {
+                                countOfSubsequence++;
+                                break;
+                            }
+                            else {
+                                break;
+                            }
+                        }
+                    }
+                    counter = 0;
+                    i = j;
+                }
+            }
+            return countOfSubsequence;
+        }
+
+        btn.onclick = function() {
+            text = document.getElementById('text').value;
+            let result = subsequense(text);
+                document.getElementById('p-output').innerHTML = 'Вы ввели:<br><div id="p-out">'+text+'</div><br><br>';
+                document.getElementById('output').innerHTML = 'Количество последовательностей:<br>'+result+'<br>';
+            if (result) {
+                document.getElementById('gif').innerHTML = '<img id="img" src="yes.gif">';
+            }
+         }
+    </script>
+</body>
+</html>

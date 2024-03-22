@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Киселев Артем</title>
+    <link rel="stylesheet" href="lab8style.css" type="text/css"/>
+</head>
+<body>
+    <div class="check">
+        <p>ООО "Евроторт"</p>
+        <p>СПАСИБО ЗА ПОКУПКУ!</p>
+        <p><br> Дата покупки: <span id="purchaseDate"></span></p>
+        <p>Время: <span id="purchaseTime"></span></p><br>
+        <table>
+            <tr>
+              <td>Наименование товара:</td>
+              <td>Сумма:</td>
+            </tr>
+          </table>
+          <table id="productTable"><tr></tr></table>
+        <p><br>ИТОГО: <span id="totalCost"></span> РУБ.</p>
+        <br><p>Скидка: <span id="discount"></span>%</p>
+        <br><p>СУММА СО СКИДКОЙ: <span id="discountCost"></span> РУБ.</p>
+      </div>
+        <script>
+            "use strict"
+            let prod_count;
+            let discount;
+            let totalCost = 0.0;
+            let product = {
+                name: [],
+                purchase: []
+            };
+
+            function countOfProduct() {
+                prod_count = parseInt(prompt('Введите количество товаров:'));
+                if(isNaN(prod_count) || prod_count < 1 || prod_count > 3) {
+                    alert('Некорректное значение, попробуйте ещё раз');
+                    countOfProduct();
+                }
+                return prod_count;
+            }
+
+            function setProductList(count) {
+                var tableBody = document.createElement("tbody");
+                for(let i = 0; i < count; i++) {
+                    product.name[i] = prompt("Введите наименование товара №"+(i+1));
+                    do {
+                        product.purchase[i] = parseInt(prompt("Введите стоимость товара №"+(i+1)));
+                        if(isNaN(product.purchase[i]) || product.purchase < 0) {
+                            alert('Некорректное значение, попробуйте ещё раз');
+                        }
+                        else { break; }
+                    } while(1);
+                    totalCost += product.purchase[i];
+                    var row = document.createElement("tr");
+                    var productNameCell = document.createElement("td");
+                    var productPurchaseCell = document.createElement("td");
+
+                    productNameCell.innerText = product.name[i];
+                    productPurchaseCell.innerText = product.purchase[i] + " руб.";
+
+                    row.appendChild(productNameCell);
+                    row.appendChild(productPurchaseCell);
+                    tableBody.appendChild(row);
+                }
+
+                var productTable = document.getElementById("productTable");
+                productTable.replaceChild(tableBody, productTable.tBodies[0]);
+            } 
+
+            function setDiscount() {
+                discount = parseInt(prompt("Введите скидку от 1 до 5%:"));
+                if (isNaN(discount) || discount < 1 || discount > 5) {
+                    alert('Некорректное значение, попробуйте ещё раз');
+                    setDiscount();
+                }
+                document.getElementById('totalCost').innerText = totalCost; 
+                document.getElementById('discount').innerText = discount;
+                document.getElementById('discountCost').innerText = ((100 - discount) / 100) * totalCost;
+            }
+
+            function setDateTime() {
+                let Date_now = new Date();
+                let day = Date_now.getDate();
+                if(day  < 10) {
+                   day = '0' + day;
+                }
+                let month = Date_now.getMonth();
+                if(month < 10) {
+                    month = '0' + month;
+                }
+                let year = Date_now.getFullYear();
+                let hour = Date_now.getHours();
+                if(hour < 10) {
+                    hour = '0' + hour;
+                }
+                let minute = Date_now.getMinutes();
+                if(minute < 10) {
+                    minute = '0' + minute;
+                }
+                document.getElementById("purchaseDate").innerText = day+'.'+month+'.'+year;
+                document.getElementById("purchaseTime"). innerText = hour+'.'+minute;
+            }
+            let count = countOfProduct();
+            setProductList(count);
+            let discountVal = setDiscount();
+            setDateTime();
+        </script>
+</body>
+</html>

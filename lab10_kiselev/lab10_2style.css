@@ -1,0 +1,58 @@
+* {
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+body {
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+#container {
+    background-color: papayawhip;
+    position: absolute;
+    height: auto;
+    width: auto;
+    padding: 30px; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.block-left {
+    height: auto;
+    width: 70px;
+    float: left;
+    position: relative;
+}
+
+.block-right {
+    height: auto;
+    width: 100px;
+    float: left;
+    margin-left: 20px;
+    position: relative;
+}
+
+#button {
+    background-color: seagreen;
+    color: whitesmoke;
+    border-radius: 5px;
+    width: 80px;
+    height: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input {
+    border-radius: 5px;
+    border-style: dotted;
+    width: 110px;
+}
+
+h1 {
+    background-color: rgb(218, 202, 176);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border-style: dashed;
+}

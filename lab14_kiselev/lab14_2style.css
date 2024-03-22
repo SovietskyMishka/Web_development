@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+#container {
+    background-color: lightcyan;
+    text-align: center;
+    position: relative;
+    height: 955px;
+    width: flex;
+}
+
+#pad {
+    background-color: aquamarine;
+    position: relative;
+    height: 500px;
+    width: 500px;
+}
+
+img {
+    padding-top: 50px;
+}

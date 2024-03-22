@@ -1,0 +1,29 @@
+* {
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+body {
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+.check {
+    background-color: rgb(255, 255, 255);
+    border: 2px solid;
+    border-color: #000;
+    padding: 20px;
+    height: auto;
+    margin-top: 5%;
+    width: 250px;
+}
+
+table {
+    position: relative;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td:first-of-type {
+    width: 63%;
+}

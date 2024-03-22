@@ -1,0 +1,53 @@
+* {
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+body {
+    background-color: rgb(160, 162, 170);
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+p {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 16px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+#container {
+    background-image: url(https://static8.depositphotos.com/1263295/853/i/450/depositphotos_8537303-stock-photo-gold-frame.jpg);
+    background-size: 800px;
+    padding: 77px;
+    width: 650px;
+    height: 430px;
+    position: relative;
+}
+
+#container img {
+    width: 100%;
+}
+
+canvas {
+    position: absolute;
+    width: 643px;
+    height: 423px;
+    left: 80px;
+}
+
+#bg {
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    background-color: rgb(0, 0, 0, 0);
+    position: absolute;
+    bottom: 79px;
+    width: 647px;
+    height: 430px;
+    z-index: 999;
+}
+
+#bg h2 {
+    padding-top: 160px;
+}

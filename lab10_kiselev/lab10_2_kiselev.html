@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>kiselev_10.2</title>
+        <link rel="stylesheet" href="lab10_2style.css" type="text/css">
+    </head>
+    <body>
+        <div id="container">
+            <h1>Расчёт сдачи</h1>
+            <p>Общая стоимость:</p><br>
+            <div class="block-left">
+                <b>(РУБ.) = </b>
+            </div>
+            <div class="block-right">
+                <input id="a" name="a_input" type="number">
+            </div><br><br>
+            <div class="block-left">
+                <b>(КОП.) = </b>
+            </div>
+            <div class="block-right">
+                <input id="b" name="b_input" type="number">
+            </div><br><br>
+            <p>Покупатель заплатит:</p><br>
+            <div  class="block-left">
+                <b>(РУБ.) = </b>
+            </div>
+            <div class="block-right">
+                <input id="c" name="c_input" type="number">
+            </div><br><br>
+            <div class="block-left">
+                <b>(КОП.) = </b>
+            </div>
+            <div class="block-right">
+                <input id="d" name="d_input" type="number">
+            </div>
+            <br><button id="button">Ввод</button>
+            <br><span id="output">...</span>
+        </div>
+        <script>
+            var a, b, c, d;
+            function valCheck(val) {
+                if(isNaN(val) || Number(val) < 0) {
+                    return val = 0;
+                }
+                return val;
+            }
+
+            function floatVal(val) {
+                val /= 100;
+                return val;
+            }
+
+            button.onclick = function() {
+                a = valCheck(parseInt(document.getElementById("a").value));
+                b = floatVal(valCheck(parseInt(document.getElementById("b").value)));
+                c = valCheck(parseInt(document.getElementById("c").value));
+                d = floatVal(valCheck(parseInt(document.getElementById("d").value)));
+                let price = a + b;
+                let payment = c + d;
+                let change = payment - price;
+                let rub = Math.abs(parseInt(change));
+                let kop = (Math.abs(change) - rub) * 100;
+                if(change < 0) {
+                    document.getElementById("output").innerHTML = "<h3>Не хватает:</h3>"+rub+" руб. "+kop.toFixed(0)+" коп.";
+                }
+                else {
+                    document.getElementById("output").innerHTML ="<h3>Сдача:</h3>"+rub+" руб. "+kop.toFixed(0)+" коп.";
+                }
+            }
+        </script>
+    </body>
+</html>

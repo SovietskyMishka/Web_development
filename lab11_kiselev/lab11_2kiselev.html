@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>lab11.2kiselev_artem8.101-1</title>
+        <link rel="stylesheet" href="lab11_2style.css" type="text/css">
+    </head>
+    <body>
+        <div id="container">
+            <img id="img" src="https://lh4.ggpht.com/Ikd8eXRbOL_Eg4ugI04NG7V2Qlx34NQf0n0YG-EwSP3UkvsjAObHxW6gb8_aXUo3HYU">
+            <h1>Шифр Цезаря</h1><br>
+            <p>Введите текст для шифрования:</p>
+            <textarea id="inpt1" type="text", name="inputtext1"></textarea><br>
+            <br><p>Введите ключ:</p>
+            <input id="inpt2" type="number", name="inputkey">
+            <button name="button" type="button" id="btn">Зашифровать</button><br>
+            <br><p>Результат:</p>
+            <div id="output">
+                <span id="chipr"></span>
+            </div>
+        </div>
+        <script>
+            "use strict"
+            var text, key;
+            const alph = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
+            function ceasarChipr(text, shift) {
+                let encrypted_text = '';
+                let flag;
+                for (let i = 0; i < String(text).length; i++) {
+                    flag = true;
+                   for (let j = 0; j < alph.length; j++) {
+                       if (text[i] == alph[j]) {
+                            flag = false;
+                            if (j > alph.length - 1 - shift) {
+                                j -= alph.length - shift;
+                            }
+                            else {
+                                j += shift;
+                            }
+                            encrypted_text += alph[j];
+                            break;
+                        }
+                        if (text[i] == alph[j].toUpperCase()) {
+                            flag = false;
+                            if (j > alph.length - 1 - shift) {
+                                j -= alph.length - shift;
+                            }
+                            else {
+                                j += shift;
+                            }
+                            encrypted_text += alph[j].toUpperCase();
+                            break;
+                        }
+                    }
+                    if (flag) {
+                        encrypted_text += text[i];
+                    }
+                }
+                    return encrypted_text;
+                }
+
+            btn.onclick = function() {
+                text = document.getElementById('inpt1').value;
+                key = parseInt(document.getElementById('inpt2').value);
+                if (isNaN(key)) {
+                    key = 1;
+                }
+                if(key < 0) {
+                    key = alph.length + key;
+                }
+                let result = ceasarChipr(text, key);
+                document.getElementById('chipr').innerHTML = result;
+            }
+        </script>
+    </body>
+</html>

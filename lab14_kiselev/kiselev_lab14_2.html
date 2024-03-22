@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Киселёв_Артём_14_2</title>
+    <link rel="stylesheet" href="lab14_2style.css" type="text/css">
+</head>
+<body onload="imgCycle()">
+    <div id="container">
+        <div id="pad">
+    <img src="" name="mypict" onclick="pauseImg()" width="300px">
+        </div>
+    </div>
+    <script>
+        "use strict"
+        var k = 1;
+        var flag = 0;
+        var frame;
+        function pauseImg() {
+            if (!flag) {
+                frame = k - 1;
+                if(frame == 0)
+                    frame = 5;
+                k = 7;
+                flag = 1;
+                imgMax();
+            }
+            else {
+                imgStd();
+                k = frame;
+                imgCycle();
+                flag = 0;
+            }
+        }
+        function imgCycle() {
+            let d = document;
+            if(k <= 5) {
+                d.mypict.src = 'pic'+k+'.gif';
+                setTimeout("imgCycle()", 2500);
+                k++;
+                if (k == 6) {
+                    k = 1;
+                }
+            }
+        }
+
+        async function imgMax() {
+            let d = document;
+            var w = d.mypict.width
+            if (w < 500) { 
+                d.mypict.width = w+10;
+                d.mypict.src = "pic"+frame+".gif";
+                await setTimeout("imgMax()", 10)
+            }
+        }
+
+        async function imgStd() {
+            let d = document;
+            var w = d.mypict.width
+            if (w > 300) { 
+                d.mypict.width = w-10;
+                d.mypict.src = "pic"+frame+".gif";
+                await setTimeout("imgStd()", 10)
+            }
+        }
+    </script>
+</body>
+</html>
