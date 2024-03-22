@@ -1,0 +1,328 @@
+* {
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+body {
+    background-color: rgb(90, 90, 90);
+    display: flex;
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+#container {
+    width: 1200px;
+    height: auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header {
+    background-color: rgba(189, 139, 0, 0.87);
+    width: 1200px;
+    height: 484px;
+}
+
+#header_bg {
+    opacity: 0.24;
+    width: 100%;
+    position: relative;
+}
+
+#header_logo {
+    bottom: 360px;
+    position: relative;
+    display: flex;
+}
+
+#navigation {
+    background-color: rgb(59, 59, 59);
+    width: 230px;
+    height: 100%;
+    min-height: 100%;
+    float: left;
+    position: relative;
+}
+
+.nav-btn {
+    background-color: rgb(74, 74, 74);
+    border-radius: 5px;
+    width: 100%;
+    height: 35px;
+    margin-top: 2px;
+    text-align: center;
+    padding-top: 16px;
+    color: white;
+    float: left;
+}
+
+.nav-btn:hover {
+    background-color: rgb(105, 105, 105);
+}
+
+.nav-btn a {
+    text-decoration: none;
+    color: white;
+}
+
+#resize-block {
+    width: auto;
+    height: auto;
+    float: left;
+}
+
+main {
+    background-color: white;
+    width: 930px;
+    float: left;
+    padding: 20px;
+    font-size: 16px;
+    position: relative;
+}
+
+footer {
+    background-color: rgb(32, 32, 32);
+    width: 100%;
+    height: 300px;
+    float: left;
+    position: relative;
+}
+
+.wide-img {
+    border-radius: 10px;
+    width: 100%;
+}
+
+.catalog {
+    width: 100%;
+    height: auto;
+    float: left;
+}
+
+.catalog-card {
+    background-color: rgb(213, 213, 213);
+    border-radius: 15px;
+    width: 430px;
+    height: 450px;
+    float: left;
+    margin: 10px 17px 17px 17px;
+    color: black;
+}
+
+.catalog-card h3 {
+    margin: 15px;
+    font-size: 25px;
+}
+
+.catalog-card p {
+    margin: 15px;
+    font-size: 23px;
+}
+
+.catalog-img {
+    opacity: 0.8;
+    width: 100%;
+}
+
+.catalog-card:hover {
+    opacity: 0.8;
+}
+
+#gallery-block {
+    width: 500px;
+    height: 460px;
+    float: left;
+    z-index: 1;
+}
+
+#big-picture {
+    width: 100%;
+    height: 385px;
+    float: left;
+    text-align: center;
+    position: relative;
+}
+
+#big-picture img {
+    border-radius: 15px;
+    width: auto;
+}
+
+#gallery-line {
+    width: 340px;
+    height: 75px;
+    position: relative;
+    float: left;
+    z-index: 10;
+    display: flex;
+}
+
+.gallery-grid img {
+    border-radius: 7px;
+    max-height: 100%;
+}
+
+#img-selector {
+    border-radius: 8px;
+    max-height: 102%;
+    outline-style: solid;
+    outline-color: rgb(11, 11, 55);;
+    outline-width: 0.25vw;
+    outline-offset: 0.3vw;
+    border-radius: 2px;
+}
+
+#swipe_left {
+    background-color: rgba(0, 0, 0, 0);
+    width: 35px;
+    height: 70px;
+    float: left;
+    margin-left: 45px;
+}
+
+#swipe_right {
+    background-color: rgba(0, 0, 0, 0);
+    width: 35px;
+    height:70px;
+    float: left;
+    transform: scaleX(-1);
+}
+
+#ord-btn {
+    background-color: rgb(227, 166, 0);
+    border-radius: 12px;
+    border: none;
+    color: rgb(0, 0, 0);
+    width: 230px;
+    height: 50px;
+    font-size: 19px;
+    font-weight: bold;
+    margin-left: 90px;
+}
+
+#ord-btn:hover {
+    opacity: 0.85;
+}
+
+#dark-bg {
+    background-color: rgba(0, 0, 0, 0.428);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 99
+}
+
+#form {
+    background-color: white;
+    border-radius: 7px;
+    width: 550px;
+    height: auto;
+    top: 25vh;
+    left: 26vw;
+    right: 25vw;
+    position: absolute;
+    z-index: 100;
+    padding: 25px;
+    font-size: 20px;
+}
+
+#form input {
+    font-size: 25px;
+    border-radius: 9px;
+}
+
+#form-head {
+    border:none;
+    font-size: 80px;
+    text-decoration: none;
+    pointer-events: none;
+}
+
+#form tr {
+    height: 70px;
+}
+
+#form table {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#form-btn {
+    background-color: rgb(227, 166, 0);
+    border-radius: 10px;
+    border-style: none;
+    width: 250px;
+    height: 45px;
+    text-align: center;
+    padding: 10px;
+    font-size: 25px;
+    margin-left: 150px;
+    margin-bottom: 25px;
+}
+
+#form-btn:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+#form img {
+   float: left;
+   width: 90%;
+}
+
+#footer-text {
+    padding: 40px;
+    font-size: 27px;
+    color: white;
+}
+
+#enter-icon {
+    width: 60px;
+    height: 60px;
+    z-index: 1;
+    position: relative;
+    cursor: pointer;
+}
+
+#login-text {
+    font-size: 13px;
+    color:black;
+    position: relative;
+    z-index: 1;
+}
+
+#auth-bar {
+    top: -780px;
+    position: relative;
+    margin-left: 65%;
+    text-align: right;
+    right: 15px;
+}
+
+#auth-bar td:first-child {
+    width: 700px;
+}
+
+#enter-icon:hover {
+    opacity: 0.8;
+    width: 50px;
+}
+
+#reg {
+    font-size: 25px;
+    text-decoration: underline;
+}
+
+#reg:hover {
+    font-size: 26px;
+    color: blue;
+    cursor: pointer;
+}
+
+#warnText {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+    visibility: hidden;
+}

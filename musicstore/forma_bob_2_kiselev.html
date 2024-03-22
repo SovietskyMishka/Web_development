@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Киселёв Артём</title>
+        <style>
+            body{
+                background-image: url(images/phpbg.jpg);
+                background-size: 100vw;
+                background-color: rgba(0, 0, 0, 0.65);
+                background-blend-mode: color-burn;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+            table {
+                background-color: white;
+                border-collapse: collapse;
+                }
+            thead {
+                color: white;
+                font-size: 23px;
+            }
+            h1 {
+                text-align: center;
+                color: white;
+                font-size: 35;
+            }
+            h2{
+                text-align: center;
+                color: white;
+                font-size: 28px;
+            }
+            td{
+                font-family: 'Franklin Gothic Light';
+                text-align: center;
+                color: rgb(41, 19, 2);
+                font-size: 20px;
+            }
+            textarea {
+                resize: none;
+            }
+            input {
+                text-align: center;
+                font-size: 20vh;
+                width: 70%;
+                height: 25vh;
+            }
+            button {
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                font-size: 20px;
+                width: 20%;
+                height: 8vh;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Магазин музыкальных инструментов</h1>
+        <h2>Форма заказа</h2>
+        <center>
+        <form action="php/zakaz2.php" method="post">
+            <table border="1">
+                <thead bgcolor="chocolate">
+                    <th width="200">Изображение</th>
+                    <th width="150">Товар</th>
+                    <th width="15">Количество</th>
+                </thead>
+                <tr>
+                    <td><img src="images/g1.jpg"></td>
+                    <td>IBANEZ GRG121DX-BKF</td>
+                    <td align="center"><input type="number" name="ibanez" size="3" maxlength="2"></td>
+                </tr>
+                <tr>
+                    <td><img src="images/g2.jpg"></td>
+                    <td>ROCKDALE STARS HSS BK</td>
+                    <td align="center"><input type="number" name="rockdale" size="3" maxlength="2"></td>
+                </tr>
+                <tr>
+                    <td><img src="images/g3.jpg"></td>
+                    <td>FENDER SQUIER BULLET STRATOCASTER HSS BROWN SUNBURST</td>
+                    <td align="center"><input type="number" name="fender" size="3" maxlength="2"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">Адрес доставки</td>
+                    <td align="center"><textarea required name="adress" cols="40" rows="4" maxlength="200"></textarea></td>
+                </tr>
+                <tr>
+                    <td height="35" bgcolor="#8f4713" colspan="3" align="center"><button type="submit">Отправить заказ</button></td>
+                </tr>
+            </table>
+        </form>
+    </center>
+    </body>
+</html>
